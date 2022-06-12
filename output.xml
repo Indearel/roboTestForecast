@@ -1,47 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.9.0 on win32)" generated="20220611 09:17:24.502" rpa="false" schemaversion="3">
+<robot generator="Robot 5.0.1 (Python 3.9.0 on win32)" generated="20220612 13:20:19.096" rpa="false" schemaversion="3">
 <suite id="s1" name="Weather" source="C:\Users\Sergiusz\PycharmProjects\RoboForecastTest\Tests\Weather.robot">
-<test id="s1-t1" name="Opening and checking current weather on the webpage" line="11">
+<test id="s1-t1" name="Opening and checking current weather on the webpage" line="26">
+<kw name="Prepare Env">
+<kw name="Set Screenshot Directory" library="SeleniumLibrary">
+<arg>Screenshots</arg>
+<doc>Sets the directory for captured screenshots.</doc>
+<status status="PASS" starttime="20220612 13:20:19.220" endtime="20220612 13:20:19.220"/>
+</kw>
+<status status="PASS" starttime="20220612 13:20:19.220" endtime="20220612 13:20:19.220"/>
+</kw>
+<kw name="Start Test">
 <kw name="Open Browser" library="SeleniumLibrary">
-<arg>https://m.meteo.pl</arg>
+<arg>https://www.woeurope.eu/Europe.htm</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20220611 09:17:24.620" level="INFO">Opening browser 'chrome' to base url 'https://m.meteo.pl'.</msg>
-<status status="PASS" starttime="20220611 09:17:24.619" endtime="20220611 09:17:26.975"/>
+<msg timestamp="20220612 13:20:19.221" level="INFO">Opening browser 'chrome' to base url 'https://www.woeurope.eu/Europe.htm'.</msg>
+<status status="PASS" starttime="20220612 13:20:19.221" endtime="20220612 13:20:21.379"/>
 </kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${POPUP_CLOSE}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220611 09:17:26.975" level="INFO">Clicking element 'css:#qc-cmp2-ui &gt; div.qc-cmp2-footer.qc-cmp2-footer-overlay.qc-cmp2-footer-scrolled &gt; div &gt; button:nth-child(1) &gt; span'.</msg>
-<status status="PASS" starttime="20220611 09:17:26.975" endtime="20220611 09:17:27.058"/>
+<status status="PASS" starttime="20220612 13:20:19.220" endtime="20220612 13:20:21.379"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
-<arg>${CITY_FIELD}</arg>
-<arg>Warszawa</arg>
+<arg>${CITY_INPUT_FIELD}</arg>
+<arg>Warsaw</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220611 09:17:27.058" level="INFO">Typing text 'Warszawa' into text field 'css:#miastoPL'.</msg>
-<status status="PASS" starttime="20220611 09:17:27.058" endtime="20220611 09:17:27.101"/>
+<msg timestamp="20220612 13:20:21.379" level="INFO">Typing text 'Warsaw' into text field 'css:#login_id &gt; div.eHead_search &gt; form &gt; input[type=text]:nth-child(3)'.</msg>
+<status status="PASS" starttime="20220612 13:20:21.379" endtime="20220612 13:20:21.416"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
-<arg>${SHOW_FORECAST}</arg>
+<arg>${SEARCH}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220611 09:17:27.102" level="INFO">Clicking element 'css:#polska &gt; form &gt; ul &gt; li:nth-child(3) &gt; button &gt; span'.</msg>
-<status status="PASS" starttime="20220611 09:17:27.101" endtime="20220611 09:17:28.135"/>
+<msg timestamp="20220612 13:20:21.417" level="INFO">Clicking element 'css:#login_id &gt; div.eHead_search &gt; form &gt; input.aa'.</msg>
+<status status="PASS" starttime="20220612 13:20:21.417" endtime="20220612 13:20:21.827"/>
+</kw>
+<kw name="Wait">
+<kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
+<arg>5</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20220612 13:20:21.828" endtime="20220612 13:20:21.828"/>
+</kw>
+<status status="PASS" starttime="20220612 13:20:21.828" endtime="20220612 13:20:21.829"/>
+</kw>
+<kw name="Current Temperature">
+<kw name="Log" library="BuiltIn">
+<arg>The current temperature is ${TEMPERATURE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220612 13:20:21.829" level="INFO">The current temperature is css:#body &gt; div.eZent_300 &gt; div.eAll_sky &gt; div.eAll_border &gt; div &gt; div.cont &gt; div.c2_r &gt; div.zentrier &gt; div:nth-child(4) &gt; table &gt; tbody &gt; tr:nth-child(3) &gt; td:nth-child(2) &gt; b &gt; span</msg>
+<status status="PASS" starttime="20220612 13:20:21.829" endtime="20220612 13:20:21.829"/>
+</kw>
+<status status="PASS" starttime="20220612 13:20:21.829" endtime="20220612 13:20:21.829"/>
 </kw>
 <kw name="Capture Page Screenshot" library="SeleniumLibrary">
 <arg>WarsawWeather.png</arg>
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20220611 09:17:28.282" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="WarsawWeather.png"&gt;&lt;img src="WarsawWeather.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20220611 09:17:28.136" endtime="20220611 09:17:28.282"/>
+<msg timestamp="20220612 13:20:21.932" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="Screenshots/WarsawWeather.png"&gt;&lt;img src="Screenshots/WarsawWeather.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220612 13:20:21.829" endtime="20220612 13:20:21.932"/>
 </kw>
+<kw name="End Test">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20220611 09:17:28.283" endtime="20220611 09:17:30.403"/>
+<status status="PASS" starttime="20220612 13:20:21.932" endtime="20220612 13:20:24.075"/>
 </kw>
-<status status="PASS" starttime="20220611 09:17:24.619" endtime="20220611 09:17:30.403"/>
+<status status="PASS" starttime="20220612 13:20:21.932" endtime="20220612 13:20:24.075"/>
+</kw>
+<status status="PASS" starttime="20220612 13:20:19.219" endtime="20220612 13:20:24.075"/>
 </test>
 <doc>A test suite for current weather.</doc>
-<status status="PASS" starttime="20220611 09:17:24.503" endtime="20220611 09:17:30.404"/>
+<status status="PASS" starttime="20220612 13:20:19.097" endtime="20220612 13:20:24.076"/>
 </suite>
 <statistics>
 <total>
