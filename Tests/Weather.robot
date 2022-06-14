@@ -3,19 +3,26 @@ Documentation     A test suite for current weather.
 Library           SeleniumLibrary
 
 *** Variables ***
-${CITY_INPUT_FIELD}   css:#login_id > div.eHead_search > form > input[type=text]:nth-child(3)
-${SEARCH}             css:#login_id > div.eHead_search > form > input.aa
-${TEMPERATURE}        css:#body > div.eZent_300 > div.eAll_sky > div.eAll_border > div > div.cont > div.c2_r > div.zentrier > div:nth-child(4) > table > tbody > tr:nth-child(3) > td:nth-child(2) > b > span
+${AGREE_COOKIES}      css:.fc-cta-consent > .fc-button-label
+${CITY_INPUT_FIELD}   css:.search-input
+${SEARCH}             css:.search-icon
+${TEMPERATURE}        css:.forecast-container:nth-child(3) .temp
+${WEATHER_DESC}       css:#body > div > div.two-column-page-content > div.page-column-1 > div.content-module > div:nth-child(5) > a > div.card-content > div.phrase
 
 *** Keywords ***
 Prepare Env
+    Set Selenium Speed    0.5
     Set Screenshot Directory        Screenshots
 Start Test
-    Open Browser    https://www.woeurope.eu/Europe.htm      chrome
+    Open Browser    https://www.accuweather.com     chrome
+Cookies Close
+    Click Element  ${AGREE_COOKIES}
 Wait
-    Set Browser Implicit Wait    5
+    Set Browser Implicit Wait    5000
 Current Temperature
-    Log  The current temperature is str(${TEMPERATURE}) Celcius degree.
+    Log  The current temperature is (${TEMPERATURE}) Celcius degree.
+Weather Description
+    Log  Today`s weather is ${WEATHER_DESC}.
 End Test
     Close browser
 
@@ -24,10 +31,10 @@ End Test
 Opening and checking current weather on the webpage
     Prepare Env
     Start Test
-    Input text      ${CITY_INPUT_FIELD}             Warsaw
+    Cookies Close
+    Input text      ${CITY_INPUT_FIELD}             Varsova
     Click Element   ${SEARCH}
-    Wait
-    #Current Temperature
+    Click Element   ${TEMPERATURE}
     Capture Page Screenshot  WarsawWeather.png
     End Test
 
