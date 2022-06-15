@@ -11,7 +11,7 @@ ${WEATHER_DESC}       css:#body > div > div.two-column-page-content > div.page-c
 
 *** Keywords ***
 Prepare Env
-    Set Selenium Speed    0.5
+    Set Selenium Speed    0.9
     Set Screenshot Directory        Screenshots
 Start Test
     Open Browser    https://www.accuweather.com     chrome
@@ -25,7 +25,6 @@ Weather Description
     Log  Today`s weather is ${WEATHER_DESC}.
 End Test
     Close browser
-
 
 *** Test Cases ***
 Opening and checking current weather on the webpage
