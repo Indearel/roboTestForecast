@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation     A test suite for current weather.
+Documentation     A test suite for the current weather.
 Library           SeleniumLibrary
 
 *** Variables ***
@@ -17,10 +17,10 @@ ${CLOSE_AD}             css:.btn skip
 
 *** Keywords ***
 Prepare Env
-    Set Selenium Speed    0.2
+    Set Selenium Speed    1.0
     Set Screenshot Directory        Screenshots
 Start Test
-    Open Browser    https://www.accuweather.com     firefox
+    Open Browser    https://www.accuweather.com     chrome
 Cookies Close
     Click Element  ${AGREE_COOKIES}
 Wait
@@ -41,9 +41,6 @@ Opening and checking current weather on the webpage
     Click Element   ${SEARCH}
     Wait until element is visible    ${TEMPERATURE_DETAILS}
     Click Element   ${TEMPERATURE_DETAILS}
-    Wait until element is visible    ${CLOSE_AD}
-    Click Element   ${CLOSE_AD}
-    Wait until element is visible    ${NEXT_DAY}
     Capture Page Screenshot  WarsawWeather.png
     End Test
 
