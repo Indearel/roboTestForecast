@@ -1,75 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.9.0 on win32)" generated="20220615 07:51:43.514" rpa="false" schemaversion="3">
+<robot generator="Robot 5.0.1 (Python 3.9.0 on win32)" generated="20220619 22:28:43.109" rpa="false" schemaversion="3">
 <suite id="s1" name="Weather" source="C:\Users\Sergiusz\PycharmProjects\RoboForecastTest\Tests\Weather.robot">
-<test id="s1-t1" name="Opening and checking current weather on the webpage" line="31">
+<test id="s1-t1" name="Opening and checking current weather on the webpage" line="42">
 <kw name="Prepare Env">
 <kw name="Set Selenium Speed" library="SeleniumLibrary">
-<arg>0.9</arg>
+<arg>1.2</arg>
 <doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" starttime="20220615 07:51:43.633" endtime="20220615 07:51:43.633"/>
+<status status="PASS" starttime="20220619 22:28:43.230" endtime="20220619 22:28:43.230"/>
 </kw>
 <kw name="Set Screenshot Directory" library="SeleniumLibrary">
 <arg>Screenshots</arg>
 <doc>Sets the directory for captured screenshots.</doc>
-<status status="PASS" starttime="20220615 07:51:43.633" endtime="20220615 07:51:43.633"/>
+<status status="PASS" starttime="20220619 22:28:43.230" endtime="20220619 22:28:43.231"/>
 </kw>
-<status status="PASS" starttime="20220615 07:51:43.633" endtime="20220615 07:51:43.633"/>
+<status status="PASS" starttime="20220619 22:28:43.230" endtime="20220619 22:28:43.231"/>
 </kw>
 <kw name="Start Test">
+<kw name="Log" library="BuiltIn">
+<arg>Test begins.</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220619 22:28:43.231" level="INFO">Test begins.</msg>
+<status status="PASS" starttime="20220619 22:28:43.231" endtime="20220619 22:28:43.231"/>
+</kw>
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>https://www.accuweather.com</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20220615 07:51:43.634" level="INFO">Opening browser 'chrome' to base url 'https://www.accuweather.com'.</msg>
-<status status="PASS" starttime="20220615 07:51:43.634" endtime="20220615 07:51:47.485"/>
+<msg timestamp="20220619 22:28:43.231" level="INFO">Opening browser 'chrome' to base url 'https://www.accuweather.com'.</msg>
+<status status="PASS" starttime="20220619 22:28:43.231" endtime="20220619 22:28:47.464"/>
 </kw>
-<status status="PASS" starttime="20220615 07:51:43.634" endtime="20220615 07:51:47.485"/>
+<status status="PASS" starttime="20220619 22:28:43.231" endtime="20220619 22:28:47.464"/>
 </kw>
 <kw name="Cookies Close">
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${AGREE_COOKIES}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220615 07:51:47.486" level="INFO">Clicking element 'css:.fc-cta-consent &gt; .fc-button-label'.</msg>
-<status status="PASS" starttime="20220615 07:51:47.485" endtime="20220615 07:51:49.366"/>
+<msg timestamp="20220619 22:28:47.465" level="INFO">Clicking element 'css:.fc-cta-consent &gt; .fc-button-label'.</msg>
+<status status="PASS" starttime="20220619 22:28:47.465" endtime="20220619 22:28:49.947"/>
 </kw>
-<status status="PASS" starttime="20220615 07:51:47.485" endtime="20220615 07:51:49.366"/>
+<status status="PASS" starttime="20220619 22:28:47.464" endtime="20220619 22:28:49.947"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${CITY_INPUT_FIELD}</arg>
 <arg>Varsova</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220615 07:51:49.367" level="INFO">Typing text 'Varsova' into text field 'css:.search-input'.</msg>
-<status status="PASS" starttime="20220615 07:51:49.366" endtime="20220615 07:51:52.162"/>
+<msg timestamp="20220619 22:28:49.947" level="INFO">Typing text 'Varsova' into text field 'css:.search-input'.</msg>
+<status status="PASS" starttime="20220619 22:28:49.947" endtime="20220619 22:28:53.637"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${SEARCH}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220615 07:51:52.162" level="INFO">Clicking element 'css:.search-icon'.</msg>
-<status status="PASS" starttime="20220615 07:51:52.162" endtime="20220615 07:51:53.993"/>
+<msg timestamp="20220619 22:28:53.637" level="INFO">Clicking element 'css:.search-icon'.</msg>
+<status status="PASS" starttime="20220619 22:28:53.637" endtime="20220619 22:28:56.085"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${TEMPERATURE_DETAILS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220619 22:28:56.085" endtime="20220619 22:28:58.581"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
-<arg>${TEMPERATURE}</arg>
+<arg>${TEMPERATURE_DETAILS}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220615 07:51:53.993" level="INFO">Clicking element 'css:.forecast-container:nth-child(3) .temp'.</msg>
-<status status="PASS" starttime="20220615 07:51:53.993" endtime="20220615 07:52:05.036"/>
+<msg timestamp="20220619 22:28:58.581" level="INFO">Clicking element 'css:.cur-con-weather-card__cta'.</msg>
+<status status="PASS" starttime="20220619 22:28:58.581" endtime="20220619 22:29:01.014"/>
+</kw>
+<kw name="Window size">
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220619 22:29:01.014" endtime="20220619 22:29:03.352"/>
+</kw>
+<status status="PASS" starttime="20220619 22:29:01.014" endtime="20220619 22:29:03.352"/>
 </kw>
 <kw name="Capture Page Screenshot" library="SeleniumLibrary">
 <arg>WarsawWeather.png</arg>
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20220615 07:52:06.067" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="Screenshots/WarsawWeather.png"&gt;&lt;img src="Screenshots/WarsawWeather.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20220615 07:52:05.036" endtime="20220615 07:52:06.067"/>
+<msg timestamp="20220619 22:29:04.723" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="Screenshots/WarsawWeather.png"&gt;&lt;img src="Screenshots/WarsawWeather.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220619 22:29:03.352" endtime="20220619 22:29:04.723"/>
 </kw>
 <kw name="End Test">
+<kw name="Log" library="BuiltIn">
+<arg>Test ends.</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220619 22:29:04.724" level="INFO">Test ends.</msg>
+<status status="PASS" starttime="20220619 22:29:04.724" endtime="20220619 22:29:04.724"/>
+</kw>
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20220615 07:52:06.068" endtime="20220615 07:52:09.009"/>
+<status status="PASS" starttime="20220619 22:29:04.724" endtime="20220619 22:29:07.980"/>
 </kw>
-<status status="PASS" starttime="20220615 07:52:06.067" endtime="20220615 07:52:09.009"/>
+<status status="PASS" starttime="20220619 22:29:04.723" endtime="20220619 22:29:07.980"/>
 </kw>
-<status status="PASS" starttime="20220615 07:51:43.632" endtime="20220615 07:52:09.009"/>
+<status status="PASS" starttime="20220619 22:28:43.230" endtime="20220619 22:29:07.980"/>
 </test>
-<doc>A test suite for current weather.</doc>
-<status status="PASS" starttime="20220615 07:51:43.515" endtime="20220615 07:52:09.010"/>
+<doc>A test suite for the current weather.</doc>
+<status status="PASS" starttime="20220619 22:28:43.109" endtime="20220619 22:29:07.981"/>
 </suite>
 <statistics>
 <total>
